@@ -1,0 +1,109 @@
+<div
+  class="col-6 mx-auto main d-flex flex-column align-items-center my-3 border rounded"
+>
+  <div class="heading py-3">
+    <h1>Post a <span class="text-primary">Job.</span>.</h1>
+  </div>
+  <div class="form py-3 col-10">
+    <form
+      action=""
+      class="d-flex flex-column"
+      [formGroup]="postForm"
+      (onsubmit)="onsubmit()"
+    >
+      <div class="form_cn">
+        <label for="">Role</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="job_title"
+          [ngClass]="{
+            'is-invalid': issubmit && f.job_title.errors
+          }"
+        />
+      </div>
+
+      <div class="form_cn">
+        <label for="">Location</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="location"
+          [ngClass]="{
+            'is-invalid': issubmit && f.location.errors
+          }"
+        />
+      </div>
+      <div class="form_cn">
+        <label for="">Salary(per month)</label>
+        <input
+          type="number"
+          class="form-control"
+          formControlName="salary"
+          [ngClass]="{
+            'is-invalid': issubmit && f.salary.errors
+          }"
+        />
+      </div>
+      <div class="form_cn">
+        <label for="">Skills</label>
+        <div class="d-flex justify-content-between">
+          <input
+            type="text"
+            class="form-control w-75"
+            #newSkill
+            formControlName="skill"
+            [ngClass]="{
+              'is-invalid': issubmit && f.skill.errors
+            }"
+            multiple
+          />
+          <button class="btn btn-primary" (click)="onadd(newSkill.value)">
+            Add
+          </button>
+        </div>
+      </div>
+
+      <div class="form_cn">
+        <label for="">Open roles</label>
+        <input
+          type="Number"
+          class="form-control"
+          formControlName="post_no"
+          [ngClass]="{
+            'is-invalid': issubmit && f.post_no.errors
+          }"
+        />
+      </div>
+      <div class="form_cn">
+        <label for="">Last date</label>
+        <input
+          type="date"
+          class="form-control w-25"
+          formControlName="last_date"
+          [ngClass]="{
+            'is-invalid': issubmit && f.last_date.errors
+          }"
+        />
+      </div>
+      <div class="form_cn">
+        <label for="">Notes(eg : requirement,responsibilities)</label>
+        <textarea
+          name=""
+          id=""
+          class="form-control"
+          rows="10"
+          formControlName="notes"
+          [ngClass]="{
+            'is-invalid': issubmit && f.notes.errors
+          }"
+        ></textarea>
+      </div>
+      <div class="button d-flex justify-content-center">
+        <button type="submit" (click)="onsubmit()" class="btn btn-primary w-25">
+          Post
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

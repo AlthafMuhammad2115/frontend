@@ -1,0 +1,62 @@
+<div class="main d-flex flex-column py-4 col-6 mx-auto">
+    <div class="buttons col-12 d-flex justify-content-end">
+        <button class="btn btn-primary" routerLink="/editpost">Edit <i class="bi bi-pencil-square"></i></button>
+        <button class="btn btn-primary ms-3" (click)="deletejob(menudata[0]._id)">Delete <i class="bi bi-trash-fill"></i></button>
+      </div>
+</div>
+
+
+<div class="main d-flex flex-column p-4 col-6 mx-auto border mb-3 rounded">
+
+  <div class="role">
+    <h1>{{menudata[0].job_title}}</h1>
+  </div>
+  <div class="location">
+    <span><i class="bi bi-geo-alt"></i></span><span>{{menudata[0].location}}</span>
+  </div>
+
+  <div class="labels col-12 pt-3">
+    <ul class="d-flex justify-content-between">
+      <li class="d-flex flex-column">
+        <div>
+          <span><i class="bi bi-geo-alt"></i></span><span>salary</span>
+        </div>
+        <div>{{menudata[0].salary| currency:'INR'}}</div>
+      </li>
+      <li class="d-flex flex-column">
+        <div>
+          <span><i class="bi bi-geo-alt"></i></span><span>openings</span>
+        </div>
+        <div>{{menudata[0].post_no}}</div>
+      </li>
+      <li class="d-flex flex-column">
+        <div>
+          <span><i class="bi bi-geo-alt"></i></span><span>Post date</span>
+        </div>
+        <div>{{postdate}}</div>
+      </li>
+      <li class="d-flex flex-column">
+        <div>
+          <span><i class="bi bi-geo-alt"></i></span><span>Last date</span>
+        </div>
+        <div>{{lastdate}}</div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="line"></div>
+
+  <div class="notes py-3">
+    <p>
+      {{menudata[0].notes}}
+    </p>
+  </div>
+
+  <div class="line"></div>
+  <div class="skillset col-6 py-3">
+    <div class="col-12 py-3 d-flex flex-wrap">
+      <p class="skill px-2 mx-1" *ngFor="let item of menudata[0].skill">{{item}}</p>
+      
+    </div>
+  </div>
+</div>
